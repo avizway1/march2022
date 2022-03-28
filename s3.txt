@@ -241,6 +241,24 @@ Event notifications :
 
 ________
 
+
+_______________
+
+https://join.slack.com/t/awswithavinash/shared_invite/zt-ozg7f9gx-lGdrFMlaOAc_BiPl4V~f4w
+_______________
+
+https://github.com/avizway1/march2022
+_______________
+
+Udemy : Expires in 5 days..
+https://www.udemy.com/course/linuxwithavinash/?couponCode=MARCHAWS
+https://www.udemy.com/course/jenkinswithavinash/?couponCode=MARCHAWS
+
+
+_____________________________________________________________________________________
+
+D: 28/03/2022
+
 Object Lock : 
 --> Versioning must be enabled.
 Permanently allows objects in this bucket to be locked. Additional Object Lock configuration is required in bucket details after bucket creation to protect objects in this bucket from being deleted or overwritten.
@@ -249,9 +267,74 @@ Governance : Users with specific IAM permissions can overwrite or delete protect
 
 Compliance : No users can overwrite or delete protected object versions during the retention period.
 
+________
+
+S3 Static Website hosting : Fixed website/webpages.
+--> DOmain name should be same as Bucket Name. (Route53)
+--> Data should be made Public Read. 
+
+We can access webiste using bucket website endpoint 
+--> http://bucketname.s3-website.ap-south-1.amazonaws.com
+
+Http status codes : 
+
+2XX --> OK/SUCCESS
+3XX --> Redirection errors
+4XX --> Client side errors
+5XX --> Server Side errors
+
+Task : Configure S3 to deliver a static website. 
+--> https://www.free-css.com/free-css-templates
+
+index.html
+<html>
+<h1> THis is my s3 static website </h1>
+</html>
+
+___________
+
+Cloudwatch : Monitoring service. We can create alarms, Graphs based on resource metrics. 
+
+Storage Class Analysis : Analyze storage access patterns to help you decide when to transition objects to the appropriate storage class.
+
+Inventory configurations : We will get all the objects list with properties.
+
+____________________
+
+Access control list (ACL) : Grant basic read/write permissions to other AWS accounts.
+ 
+--> By using 3rd party applications.. Using CLI.. 
+
+https://www.msp360.com/explorer/windows/amazon-s3.aspx
+https://s3browser.com/
+
+Non_Compliant operation : We never ever should make a bucket public in org.
+
+____
+
+Performance : 
+
+--> Increase the randomness in object names.
+--> Use the prefixes. 
+
+--> 3500 PUT/Sec.. 5500 GET/Sec.. If we are directly storing all data in s3 platform.
+
+In S3, Perfix place imp role. /prefix we will get 3500 put & 5500 get operations.
+
+Req: 35,000 PUT.. --> Create 10 folders and upload data simumtaniously. 
 
 
 
+__________________
+
+How to access s3 using 3rd party applications.!!
+Ans : S3 Browser, CyberDuck, WinSCP, CLoudberry explorer
+
+https://www.msp360.com/explorer/windows/amazon-s3.aspx
+
+
+Task : Try any of the s3 supported 3rd party application. 
+Task : Try to deliver simple static webpage with s3.
 
 
 

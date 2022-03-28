@@ -1,0 +1,233 @@
+________________________________________________________________________________
+
+D: 16/03/2022
+
+https://aws.amazon.com/free
+
+Account Types : 
+--> Production / PRD
+--> Pre-Production / UAT
+--> Development / DEV
+--> Quality Assurance / SQA
+--> Sandbox / Training
+
+Step 1 : 
+Valid EMail Address : root user
+Verify the Email Address 	
+Password
+
+Step 2 : Enter contact Information
+
+Account type : Personal / Business (Professional)
+Name, Address, Contact information				
+
+Step 3 : Payment information
+
+CC/DC : Visa / Master Card / AMEX / Discovery		(No Rupay/Mastro)
+Deduct 2 INR / 1$ .. refund back 48-72 Hrs
+
+Step 4 : COnfirm Identity
+
+Enter Ph number : SMS / Call.. Enter 4 Digit pin 
+
+Step 5 : Choose Support Plan : Basic SP
+
+1. Account and Billing related query : Free for all SP, 24x7
+2. Service Limit Increase : Free for all SP, 24x7
+3. Technical Assistance : Depends on SP
+
+Basic SP : FREE, 1 & 2 : Included.. 3 : No technical from AWS.. AWS Developer forums/ Knowledge Base articles / AWS Documentation..
+Trusted Advisor : 7 core area checks.. 
+
+Developer SP : 29$/Month.. 3 : 12-24 Local business hours, Cloud support associate.. chat and email support.. 
+One User can raise ticket.. Unlimited tickets.. 
+Trusted Advisor : 7 core area checks.. 
+Case severity : 
+General guidance:  < 24 hours
+System impaired: < 12 hours
+
+
+Business SP : 100$/Month.. 3 : 1 Hr, 24x7 support.. cloud engineer.. Email, Phone and chat support.. 
+Any User/Multiple users can raise ticket.. Unlimited tickets.. 
+Trusted Advisor : Full checks.. 
+Case severity : 
+General guidance:  < 24 hours
+System impaired: < 12 hours
+Production system impaired: < 4 hours
+Production system down: < 1 hour
+
+
+Enterprise SP : 15k/Month.. 3 : 15 Min, 24x7 support.. Sr. cloud engineer.. Email, Phone and chat support.. 
+Any User/Multiple users can raise ticket.. Unlimited tickets.. 
+AWS Training
+AWS Allocates TAM (Technical Account Manager)
+Annual Operational reviews and Architectural reviews
+Trusted Advisor : Full checks.. 
+Case severity : 
+General guidance:  < 24 hours
+System impaired: < 12 hours
+Production system impaired: < 4 hours
+Production system down: < 1 hour
+Business-critical system down: < 15 minutes
+
+https://aws.amazon.com/console 		--> aws.com
+
+
+root user loging : Email address to login to aws.. 
+
+
+--> Least privilages mechanism
+
+Storage Admin : S3 Service : IAM user Permissions on S3 only.. 
+Compute Admin : Ec2 Service : IAM User permissions on ec2 only.. 
+
+
+FEB2022  : Works for coming 3 Days.. 
+
+https://www.udemy.com/course/jenkinswithavinash/?couponCode=FEB2022
+https://www.udemy.com/course/linuxwithavinash/?couponCode=FEB2022
+
+https://s3.ap-south-1.amazonaws.com/avinash.bucket/demo.txt
+
+___________________________________________________________________________________
+
+D: 17/03/2022
+
+Email/Username and Password : 
+
+MFA : Multi Factor Authentication : 
+
+
+_______
+
+root user : 
+
+IAM User : Identity and ACcess management : Service to manage users and their level of access on AWS environments. 
+--> User level, Group level
+
+Storage Admin : S3 Service : IAM user Permissions on S3 only.. 
+Compute Admin : Ec2 Service : IAM User permissions on ec2 only.. 
+
+
+Search IAM --> Users --> Add User --> 
+
+1. Username : S3admin
+
+2. Select AWS access type : 
+
+AWS Management console access : GUI : Username, Password & Sign-in : Browser
+Programatic ACcess : CLI : AccessKeyID and SecretAccessKey : CLI tools, API, SDK, 3rd party applications..
+
+Permissions : Policy : Document contains Set of permissions on AWS services.. 
+
+3. Add Tags
+
+4. Review and create.
+
+___
+
+Task : Create an IAM user, Allocate "AdministratorACcess" policy to this user.. 
+--> Login and verify, you are able to chnage the support plan.??
+--> if it is not allowing you to change, how you can allow this user to view/edit account related information.??
+
+
+Demo: 01 ( 10-03-2022 )
+Video Link: shorturl.at/guAGH
+Password: 2*%$XkM#
+
+Demo: 02 ( 11-03-2022 )
+Video Link: shorturl.at/mKZ67
+Password: $!=@6C24
+
+Demo: 03 ( 14-03-2022 )
+Video Link: shorturl.at/qvFNY
+Password: tb0i=DZr
+
+Demo: 04 ( 15-03-2022 )
+Video Link: shorturl.at/lwCV3
+Password: $2b3.d9D
+
+Demo: 05 ( 16-03-2022 )
+Video Link: shorturl.at/vEG35
+Password: +XQiV3nB
+
+Demo: 06 ( 17-03-2022 )
+Video Link: shorturl.at/wGO09
+Password: p@QB1ZPZ
+
+
+FEB2022  : Works for coming 3 Days.. 
+
+https://www.udemy.com/course/jenkinswithavinash/?couponCode=FEB2022
+https://www.udemy.com/course/linuxwithavinash/?couponCode=FEB2022
+
+		https://s3.ap-south-1.amazonaws.com/avinash.bucket/demo.txt
+
+_______________________________________________________________________________________
+
+D: 18/03/2022
+
+
+Policies : 
+
+AWS Managed - Job function policy : Based on standard markets jobs.. 
+AWS Managed policy : Based on aws services.. 
+Customer Managed policy : Custer need to created based the requirement. 
+
+Requirement : IAM user.. He needs full access on all the aws service.. But not on "S3"
+
+Service : S3
+Actions : *
+Resources : * / All resources
+
+DENY always will have highest permissions/privilages. 
+
+implicit Allow : User will get access on the resource based on the associated polocies. (S3User --> S3FullAccess: He can access only s3)
+
+Explicit Deny : Whatever the services mentioned as DENY, It will deny.. If you allow 100 times and deny only 1 time : Still Deny will takes effect. 
+
+
+Inline policy : This policy is allighed to only one resources. It is not a reusable policy. 
+
+Task : Create an IAM USer and allocate "S3FullAccess" policy to this user. Navigate to "Securty Credentials" and verify "MultiFactor auth".. 
+--> Create a policy to Enable MFA himself. 
+
+Task 2 : Create an IAM user, ALlocate "AdministratoAccess", Use the same user throughout course.
+
+________________________________________________________________________________________
+
+D: 21/03/2022
+
+
+--> Permissions Boundary : Set a permissions boundary to control the maximum permissions this user can have. This is not a common setting but can be used to delegate permission management to others
+
+--> Credentials report : We can generate IAM User information report as CSV file. 
+
+--> Track IAM user activity : 
+Cloudtrail : Logging service in AWS Environment. Enabled by defaultly. It an store last 90 days activities. 
+
+--> Basic CLI configuration : 
+https://aws.amazon.com/cli
+--> aws --version
+--> aws configure (enter accesskeyid, Secretaccesskey, region, output)
+--> aws s3 ls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

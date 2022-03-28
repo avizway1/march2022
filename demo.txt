@@ -1,0 +1,150 @@
+D: 10/03/2022
+
+Infra : Servers, Network, Database, Storage, Applications and Services.
+
+on-demand : 
+
+Storage : S3
+
+Pay-as-you-go : 120 Sec/2 Min : 2 Min bill.. (Min of 60 Sec)
+Pay-as-you-grow : Small Server.. 
+
+
+CAPEX : Capital Expendature : No CAPEX if you want to use cloud.
+OPEX : Operational Expendature : Less OPEX.. 
+
+Greenzone window / Maintenance Window :  
+
+Shared Security Responsibility Model : 
+--> Security OF the Cloud : Servers, physical security, Access to DC.. : Service provider
+--> Security IN the cloud : Password, Enable MFA, Opening ports to known networks : Our
+
+
+________________________________________________________________________________________
+
+
+Demo: 01 ( 10-03-2022)
+Video Link: shorturl.at/guAGH
+Password: 2*%$XkM#
+
+_____________________________________________________________________________________
+
+D: 11/03/2022
+
+Deployment models of CLoud computing : 
+
+Public Cloud : Anyone can access the Infra.. AWS, Azure, GCP.. 
+Main : Service provider Responsibility
+
+Private Cloud : Dedicated for Only One Organisation.. Infra will be Either in OnpRemise of the client / It may be in some remote location.. 
+Main : Client may have dedicated team to takes care about the issues / 3rd Party
+
+Hybdrid Cloud : Combination of Multiple cloud platforms (Public + Public / Public + Private)
+--> AWS Direct COnnect
+--> VPN
+
+Community Cloud : Group of Org, build the Infra and only thoat group of Org uses the infra.. !!!!
+PCI-DSS / HIPPA/ FedRAMP / FIPS
+Main : One of the company from community / 3 rd party org
+
+
+From Monday Onwords.. Session Starts at 07:30 AM IST
+
+
+
+1 --> Service Models of Cloud computing
+2 --> Intro to aws
+3 --> AWS Global Infra
+4 --> How to create an AWS Account
+5 --> What is IAM vs Root
+
+_____________________________________________________________________________________
+
+D: 14/03/2022
+
+--> CHris Pinkman and benjamin black 
+
+SQS : SImple Queue Service : MSMQ : 
+
+2012 : AWS Re:Invent : AWS Annual Conference : Nov - Dec
+
+
+_______________________________________________________________________________________
+
+D: 15/03/2022
+
+Shared Security responsibility Model
+Security OF the Cloud : Infra
+Security IN the Cloud : Our
+
+
+26 Regions : No Technical definagtion.. Geographical lcoation.. 
+84 Availability Zones / AZs : Data Center or combination of multiple DCs.. 
+300+ PoP or Edge Locations : Cloudfront
+
+Region : Physical location or geographical location : 
+
+21 For general public usage : 
+2 : us-gov-cloud (HIPPA, FEDRAMP, FIPS, PCI-DSS)
+2 : china region (nwdc, sinnet)
+
+
+India : Mumbai 
+Hyderabad : Mid 2022 (3 AZs)
+
+
+CDN Services : Akamai, Cloudflair.. 
+Content delivery network.. 
+
+___
+
+https://aws.amazon.com/free	12 Months Free Tier eligibility
+
+2 INR : Refund back
+
+ec2 : elastic Compute Cloud : Servers : Instances : 750 Hrs/Month Windows 
+750 Hrs/Month Linux Instance.. 
+
+31/24 Hrs = 744 Hrs
+
+1 Server x 31 days x 24 hrs = 744 Hrs 
+2 servers x 16 days x 24 hrs = 750+
+
+S3 : Simple Storage Service : Dropbox / Google Drive / OneDrive : Storage service : 
+5 gb standard storage.. 
+
+RDS : Relational database service : mysql / mssql / postgresql : 750 Hrs/Month.. 
+
+Cloudfront : 50 gb data transfor over edge locations : 
+
+
+
+
+
+
+Demo: 01 ( 10-03-2022 )
+Video Link: shorturl.at/guAGH
+Password: 2*%$XkM#
+
+Demo: 02 ( 11-03-2022 )
+Video Link: shorturl.at/mKZ67
+Password: $!=@6C24
+
+Demo: 03 ( 14-03-2022 )
+Video Link: shorturl.at/qvFNY
+Password: tb0i=DZr
+
+Demo: 04 ( 15-03-2022 )
+Video Link: shorturl.at/lwCV3
+Password: $2b3.d9D
+
+IAM : Identity And access management : User management
+Storage : S3 : Simple Storage Service : We store data in Buckets
+Compute : ec2 : Elastic Compute Cloud : We can launch our servers/Instance : 
+Instance / Azure VM / GCP Compute Engine / VM / Box / Server
+Route53 : DNS Service : Hosting 
+RDS : Relational Database Service : mysql, mssql, mariadb, postgresql, oracle, aurora.. 
+VPC : Virtual Private network : Network configuration in AWS : 
+
+________________________________________________________________________________
+

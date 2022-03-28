@@ -1,0 +1,259 @@
+S3 : Simple Storage Service : 
+-
+Object based storage :  We cannot install/run any applications/os. : Dropbox / GDrive 
+--> Designed to flat files.
+
+Block based storage : Designed to run OS, We can install/run applications.. : EBS, Instance store volumes. : EC2 
+Storage over the network : Storage runs over the network and it can be mounted to multiple devices. : EFS, FSx : EC2
+
+--> Designed to store objects. We can store any flat files.
+--> We store data in BUCKETS. 
+--> Bucket names should be unique across the globe. 
+--> Defualtly, we can create 100 buckets, This is a soft limit. 
+--> We can store unlimited data in a bucket.
+--> No Pre-provisioning required.
+--> Bucket naming limitations
+	--> Min char 3, Max 63 char length
+	--> Bucket name should be in small , and numeric
+	--> Bucket name should not start with .
+	--> Should not end with . , No adjesent ..
+	--> Bucket name should not resemble IP address format. (192.168.100.1)
+
+--> We can upload objects to this buckets.
+--> Min obj size : 0 bytes.. Max Obj size: 5 TB
+--> S3 is a global service. Doesn't required region selection.
+--> While creating we need to choose the region. Data physically resides at this regions AZs. 
+
+https://s3.ap-south-1.amazonaws.com/bucketname/objectname
+https://bucketname.s3.ap-south-1.amazonaws.com/objectname (virtual path)
+https://bucketname.s3.amazonaws.com/objectname (virtual path)
+
+Virtual paths won't work if we have . in bucket names.
+
+To make an object public : 
+
+Block Public Access settings for this account : Account Level Blocking
+Block public access (bucket settings) : Bucket level Blocking
+--> We should make an object public, then only Object URLs works.
+Object Ownership : ACLs enabled
+
+S3 Free Tier ELigibility : 
+5 GB Standard Storage
+--> 2000 PUT (Upload) / 20,000 GET (Download)
+
+_______________________________________________________________________________
+
+
+GDrive : 100 gb plan				S3	: no pre provisioning req
+
+20 gb Daily					S3-Standard
+20 gb Infreq 					Standard-IA / OneZOne-IA
+10 gb don't know when to access			Intelligent Tier
+20 gb unimp data / non critical			RRS (Redused redundancy storage)
+10 gb archive					Glacier / Glacier-DA
+
+30gb
+
+99.99% Ava
+99.999999999 % Durability
+
+
+S3 Storage Classes : 
+
+--> S3 Standard : Defualt storage class for all the data we upload to s3. Data will be available immedeatly.
+Designed to store : Frequently accessed data. 
+Availability : 99.99%,  Durability: 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> Standard-IA : Data will be available immedeatly. Designed to store : infrequently accessed data
+Avai : 99.9%, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> One Zone-IA : Data will be available immedeatly. Designed to store : infrequently accessed data. Store only non-critical data
+Avai : 99.5 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : 1 AZs
+
+--> Glacier Flexible Retrieval (Formerly Glacier) : Long-term data archiving with retrieval times ranging from minutes to hours. Data won't be available immedeatly. We need to initiate a data restration to view the data. Restoration takes (1 min - 5 Hrs)
+Avai : 99.99 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+--> Glacier Instant Retrieval : Long-lived archive data accessed once a quarter with instant retrieval in milliseconds. 
+
+--> Glacier Deep Archieve : Long-term data archiving with retrieval times ranging from 12 hrs. Data won't be available immedeatly. We need to initiate a data restration to view the data. Restoration takes (5 - 12 Hrs)
+Avai : 99.99 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+..
+S3 Intelligent Tier : If we have unknown access pattern, we can choose. 
+Avai : 99.9 %, Durability : 99.999999999 (11 9's) 
+Data replicates across : >= 3 AZs
+
+RRS : Redused Redundancy Storage : Not Recommanded : Less durability.. 
+Durability : 99.99%, As we have less durability we have high chances to loss the data when compared to another storage classes.
+
+
+S3 Pricing : 
+--> How much data we are storing.
+--> How many GET/PUT operations (uploads/downloaded object count)
+--> Data retrivals
+
+Glacier data retrival : 
+Bulk retrieval : Typically within 5-12 hours.
+Standard retrieval : Typically within 3-5 hours.
+Expedited retrieval : Typically within 1-5 minutes when retrieving less than 250 MB.
+
+_____________________________________________________________________________
+
+D: 24/03/2022
+
+Version : AWS maintains multiple copies in s3 bucket. 
+--> Defaultly versioning will be in Disabled state. Once enabled, We cannot disable (Suspend/enable)
+--> When versioning is enabled, If we delete an object
+
+Versioning : HIDE
+--> S3 will show most recent uploaded object only.
+--> We will get a Delete Marker. 
+--> TO get object back / undo delete, Set Version to SHOW, "Delete the delete marker".
+
+Versioning : SHOW
+--> If we delete an object, it deletes permanently.
+
+_______________
+
+Life Cycle Management Rule : 
+
+S3 Standard --> StandardIA --> Glacier --> Delete
+S3 Standard --> Glacier --> Delete
+S3 Standard --> Delete
+
+
+CRR / SRR : 
+--> Source bucket and destination bucket must be enabled with versioning. 
+--> Existing objects will not replicate to the destination bucket.
+--> All future / subsequent uploads will replicate to destination bucket. 
+
+RTC : Replication time control : Data replicates to destination bucket with in 15 Min. (99.99% of the data) : COST US
+
+___
+Data transfer from One region to another region cost us.
+Data transfer within a region won't cost us anything.
+_________
+
+
+Storage classes
+Versioning
+LCR
+CRR/SRR
+Encryption
+Static website hosting
+Bucket policy
+
+
+aws s3 sync source destination
+
+_______________________________________________________________________________________
+
+D: 25/03/2022
+
+Encryption : 
+
+--> In-Transit Encryption : 
+	SSL (Secure socket layer) / TLS (Transport layer secure)
+
+--> SSE (Server Side Encryption) / At-rest : 
+
+SSE-S3 : S3 platform generates and manages the key material. whoever have valid access on S3 platform can decrypt/view the data. (An encryption key that Amazon S3 creates, manages, and uses for you).
+
+SSE-KMS : Key Management Service : 
+	KMS (AWS managed keys) (aws/s3) DMK(Default Master Key) : KMS Service generates and manages the key material. whoever have valid access on S3 platform can decrypt/view the data. We cannot delete these keys. 
+	 CMK (Customer managed keys) : KMS Service generates and manages the keymaterial.
+Along with S3 platform, the IAM user need to have valid permissions on ENCRYPTION KEY also. NO FREE TIER ELIGIBILITY.
+	SSE-C (Customer Provided Key): Customer generates and upload the key material to KMS and KMS uses this key material to encrypt/decrypt the data. CUstomer can change the key material at any time. NO FREE TIER ELIGIBILITY.
+
+CSE (Client Side Encryption) : Before uploading data to s3 platform, we can use our own software/applications to encrypt the data. That encryptrd data we can send to s3. AWS is not completely responsible for this mechanism.
+
+
+Encryption key generation : 
+--> Provide alias/name.
+--> CHoose type (Symmetric/asymetric) : Symmetric
+Symmetric : A single encryption key that is used for both encrypt and decrypt operations
+Asymmetric : A public and private key pair that can be used for encrypt/decrypt or sign/verify operations
+
+--> key administrative permissions : Who can administrate this key. : 
+--> key usage permissions : Who can use this key to decrypt the data : 
+
+KMS Keys, we cannot delete immedeatly. We need to schedule key deletion (Min: 7 Days, Max: 31 Days)
+
+
+https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=ap-south-1&origBucketName=tavinash
+
+logs format : https://docs.aws.amazon.com/AmazonS3/latest/userguide/LogFormat.html
+
+
+Http Status codes : 
+2XX : Ok/Success
+3XX : Redirection
+4XX : Client side errors
+5XX : Server side error
+
+________________________________________________________________________________________
+
+D: 26/03/2022
+
+IAMUser-1 : S3FullAccess : Okay to have full access on all resources.
+IAMUser-2 : S3FullAccess : Restrict this user to Delete "tavinash" and restrict "PUT" on "tavinash".
+
+arn : Amazon Resource Name
+
+Effect : ALLOW / DENY : DENY
+
+Principal : For what user/group you want to allow/deny : arn:aws:iam::501170964283:user/user2
+
+Actions : Operations : DeleteBucket , PutObject
+
+Resource arn : on what bucket you want to apply : arn:aws:s3:::avinash.bucket
+
+URL : https://awspolicygen.s3.amazonaws.com/policygen.html
+
+Bucket Level : arn:aws:s3:::avinash.bucket
+Object level : arn:aws:s3:::avinash.bucket/*
+
+
+Task 1 : IAMuser should have access to only one s3 bucket. (Create an IAM policy to list all the bucket, but the iam user should work in only one bucket allocated to him).
+
+user1 --> user1bucket
+user2 --> user2bucket
+
+_____________
+
+Intelligent-Tiering Archive configurations: 
+
+IT Archive Access tier :  Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 90 days to the Archive Access tier.
+
+Deep Archive Access tier : When enabled, Intelligent-Tiering will automatically move objects that haven’t been accessed for a minimum of 180 days to the Deep Archive Access tier.
+
+_______
+
+Event notifications : 
+
+--> SNS : Simple Notification Service : 1000 EMAILs Free Tier eligibility
+--> SQS : Simple Queuq Service
+--> Lambda 
+
+________
+
+Object Lock : 
+--> Versioning must be enabled.
+Permanently allows objects in this bucket to be locked. Additional Object Lock configuration is required in bucket details after bucket creation to protect objects in this bucket from being deleted or overwritten.
+
+Governance : Users with specific IAM permissions can overwrite or delete protected object versions during the retention period.
+
+Compliance : No users can overwrite or delete protected object versions during the retention period.
+
+
+
+
+
+
+
+
+

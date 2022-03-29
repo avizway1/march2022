@@ -1,0 +1,52 @@
+Step 1: Unlock the device
+
+snowballEdge unlock-device --endpoint https://10.10.0.37/ --manifest-file JID339ecc3d_sjghgjhg_fsjkghguigh_fjgbn_manifest.bin --unlock-code 1b7e4-dghjj-gdhdg-dgdgd-dgdgd
+
+
+To options to transfer the data: 
+1. S3 endpoints
+2. NFS Client
+
+
+upload data to Edge:
+_________________
+
+aws s3 cp "C:/Desktop/bucket.txt" s3://bucketname --endpoint http://10.10.0.37:8080
+
+
+Download from Edge:
+___________________
+
+aws s3 cp s3://bucketname/filename D:/localpath --endpoint http://10.10.0.37:8080
+
+
+List the files from Edge:
+_________________________
+
+aws s3 ls s3://bucketname --endpoint http://10.10.0.37:8080 --recursive
+
+
+To know Device Status
+_____________
+C:\Users\administrator\Desktop\snowball>
+
+snowballEdge describe-device --endpoint https://10.10.0.37/ --manifest-file JID339ecc3d_sjghgjhg_fsjkghguigh_fjgbn_manifest.bin --unlock-code 1b7e4-dghjj-gdhdg-dgdgd-dgdgd
+
+
+optional:
+--recursive	--> To perform forcefully
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

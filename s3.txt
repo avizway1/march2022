@@ -308,9 +308,11 @@ Access control list (ACL) : Grant basic read/write permissions to other AWS acco
 https://www.msp360.com/explorer/windows/amazon-s3.aspx
 https://s3browser.com/
 
-Non_Compliant operation : We never ever should make a bucket public in org.
+Non_Compliant operation : We never, ever should make a bucket public in org.
 
-____
+_____________________________________________________________________________________
+
+D: 29/03/2022
 
 Performance : 
 
@@ -323,8 +325,6 @@ In S3, Perfix place imp role. /prefix we will get 3500 put & 5500 get operations
 
 Req: 35,000 PUT.. --> Create 10 folders and upload data simumtaniously. 
 
-
-
 __________________
 
 How to access s3 using 3rd party applications.!!
@@ -332,11 +332,45 @@ Ans : S3 Browser, CyberDuck, WinSCP, CLoudberry explorer
 
 https://www.msp360.com/explorer/windows/amazon-s3.aspx
 
-
 Task : Try any of the s3 supported 3rd party application. 
-Task : Try to deliver simple static webpage with s3.
+_______________________
+
+Consistancy Mechanism : 
+
+Read after write Consistency for PUT of new objects. (If we upload any object, it will be available immedeatly without any delay)
+Eventual Consistency overwrite of Put objects and Delete objects. (If any object is overwritten/deleted, at same time if any request is generated slight chances are there to get the deleted data/outdated data)
+
+________________________
+
+AWS Snow Family: 
+AWS SnowCone : 8 TB
+AWS SNowball Edge : 40-100 TB 
+AWS SnowMobile : PB Scale container
+
+1 PB, 1 gbps... 20-23 Yrs to upload  : 3 Months migrate
+
+_____________________________________________________________________________________
+
+EC2 : Elastic Compute Cloud : 
+
+Server Class : windows server 2008, r2, 2012, 2016, 2019, ubuntu, fedora
+CLeint Class : windows 7, 8, 11 : Amazon Workspaces
 
 
+signal : 
+faceapp :   20 servers : 200 servers : 3 month : 20 servers : 2 servrs.>?? 
 
+Pay-as-you-go : pay for the resources you avtually used.
+Pay-as-you-grow : 
+
+Vertical Scaling : Adding more resources on same h/w
+Horizantal scaling : Distributing workload across multiple servers/h.w.. 
+
+Instance = Server = Azure VM = Compute engine = VM = box
+
+
+--> OnDemand
+--> Reserved
+--> Spot Instances
 
 

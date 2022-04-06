@@ -481,6 +481,38 @@ Task 3 : Launch Another ec2 instance in ap-south-1b..
 Get the 2gb volume data from instance 1a to newly launch 1b ec2 instance.. Make Same volume available to "1b instance"..!!
 
 
+______________________________________________________________________________________
+
+D: 06/04/2022
+
+Scenario : 10 ec2 instances.. AV, MS Office, Custom WP, CUstom OS users, Applications, IIS.. 
+
+--> Launching 10 instance : connect to 10 instance and install everything in all 10 instance.. 
+--> 1 ec2 instance : Install everything.. : Keep it as Image : --> Launch "n" number using image..
+
+Client : OS with CIS Benchmarks (Center for Internet Security) : 
+
+*** GoldenAMI = CUstomized AMI.. Won't work with keypairs.. We need to change the password.. 
+
+Ec2 instance , Perform customizations --> Create a Golden AMI --> From GAMI we can launch n num of ec2 instance.. 
+
+Similar to Snapshots..
+
+--> We can launch another instance in same region using GAMI.
+--> We can copy Region 1 GAMI to Region 2, And launch an ec2 instance in Region 2. 
+--> We can share GAMI from Acc 1 to Acc 2. 
+--> We can share GAMI to public.
+
+______________________________________
+
+Task : Launch a windows ec2 instance, make it as "Web Server", Test the "Security groups" and deliver custom webpage.
+
+Task 2 : Perform some more customisations on the task 1 instance and make it as GoldemAMI , Launch instance from GAMI and Test we got all the customisations or not..!!!!!!
+
+Task 3 : Launch Linux ec2 instance, Make it as webserver.. Add custom webpage.. Create a Golden AMI and Launch instance from GAMI and test output. 
+
+
+
 
 
 

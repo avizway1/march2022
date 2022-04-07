@@ -4,10 +4,6 @@ CPU, Memory/RAM, Storage/HDD/SDD, Network (wifi, bt, NIC/ENI)
 
 Instance = Server = Azure VM = Compute engine = box
 
---> Shared security responsibility model
-Security OF the Cloud : Physical infra, hardware, Physical security/Access : AWS
-Security IN the cloud : OS Patching, Firewall, Application level security : Customer
-
 CLient Class OS : Win7, win10
 Server Class OS : Windows server 2008 r2, 2012, 2012 r2, 2016, 2019
 
@@ -511,12 +507,90 @@ Task 2 : Perform some more customisations on the task 1 instance and make it as 
 
 Task 3 : Launch Linux ec2 instance, Make it as webserver.. Add custom webpage.. Create a Golden AMI and Launch instance from GAMI and test output. 
 
+_________________________________________________________________________________________
+
+D: 07/04/2022
+
+RDP : 3389
+SSH : 22
+http : 80
+https : 443
+mssql : 1433
+Mysql : 3306
+
+--> We can have 5 SGs for an EC2 Instance. 
+--> Wecan have 60 inbound and 60 outbound rules per security group (making a total of 120 rules) 
 
 
+EIP : Elastic IP Address : Dedicated IP address we will get from AWS. We can associate this to an ec2 instance. When Instance is STOP/START, this IP won't change.
+(COST US : NO FREE TIER ELIGIBILITY, EVEN if you generated kept it idle)
 
 
+ENI : Elastic Network Interface : NIC CARD for Instance.. : 
+--> EC2 instance and ENI should be in same AZ.
 
 
+http://localhost/ or http://127.0.0.1/
+
+** Security Groups : http / https traffic.. 
+--> CHanges to the Security group takes effect immedeately. (No need to stop/start the instance). 
+--> Security group won't support DENY. It allow the traffic. 
+--> Security groups are stateful. We need to take care about INBOUND RULES only. 
+--> All the Outbound traffic is allowed for every security groups. 
+
+____________
+___________
+
+Whenever we launch an ec2 instance, 2 status checks will happen. 
+-> System Status check : H/w is healtlhy or not at Physical resource level. (STOP/START)
+-> Instane status check : OS level issues.
+
+Virtulisations : 
+
+Host Based Hypervisor
+Bare metal Hypervisor 
+
+______________
+
+Tenancy in AWS : 
+--> Shared Tenancy : Underlying hardware/resources will be shared with multiple AWS customers. 
+--> Dedicated Tenancy : Underlying hardware/resources will dedicatedly available to only one AWS customer. It won't share with any other.
+	--> Dedicated Instance : 
+	--> Dedicated Host : Host supports to launch multiple instances. Some applications required physical resources inforamtion to apply the licenses. 
+
+_________________
+
+--> Shared security responsibility model
+Security OF the Cloud : Physical infra, hardware, Physical security/Access : AWS
+Security IN the cloud : OS Patching, Firewall, Application level security : Customer
+
+________________
+
+Step 2 : Choose an Instance type 		: vCPU, Memory(RAM), Network perf
+==> t2.micro
+
+
+General Purpose : Stable/balanced performance of compute, memory and network resources.
+Type : t2, t3, t4, m5
+
+Compute Optimized : We will get more CPU performances from these instances. We will have high perf processors in these instances.
+Type : c4, c5, c6  (Compute / CPU)
+
+Memory Optimized : We will get more RAM perf. Workloads required to process large set of data via memory.
+Type : r4, r5, r6, x1, z1, u1 (RAM)
+
+GPU Optimized / Accelerated computing : We will get more graphic processings, Efficient for data pattern matching, High level gaming.
+Type : p2, p3, p4, g3, g4, f1  
+
+Storage optimized : we will get more Storage/ Hard Disk performance. FOr the application required more IOPS, we use this types.
+Type : d2, d3, i3
+
+m5.large	: 2 CPU, 8 RAM
+c5.xlarge	: 4 cpu, 8 ram
+t3.medium	: 2 cpu, 4 ram
+
+
+___
 
 
 

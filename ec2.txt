@@ -598,9 +598,6 @@ ec2 instance --> install application --> t2.micro --> Verify the metrics
 
 Cloudwatch : Monitors the resources.. Provides the graphs.. 
 
-Vertical Scaling : Upgrading same instance resources.. t2.micro --> c5.2xlarge
-Horizantal Scaling : Distribute application load to multiple ec2 instances.. 
-
 ___
 
 Cloudwatch : Monitoring Service. 
@@ -644,5 +641,81 @@ Task 2: Use task1 Ec2 instance, alarm to stop instance if cpu utiliation is belo
 Task 3 : Create Eventbridge to take a volume snapshot everyday at 09:00 AM IST From MON-FRI. You shuld get alert when this invocation happend. 
 
 High utilisations / Load test / stress test : bees with machine guns
+
+_______________________________________________________________________________________
+D: 09/04/2022
+
+
+Vertical Scaling : Upgrading same instance resources.. t2.micro --> c5.2xlarge
+Horizantal Scaling : Distribute application load to multiple ec2 instances.. 
+
+Classic ELB : Layer 4/7 LB.. : Outdated.. : http, https, tcp, udp.. 
+Application ELB : Layer 7 ELB.. : http and https
+Network ELB : Layer 4 ELB.. : TCP, UDP, TLS 
+Gateway ELB : GENEVE / 3rd party security virtual applicances.. 
+
+**Please select at least two Subnets in different Availability Zones to provide higher availability for your load balancer.
+
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>This is my Userdata Webserver</h1>" >> /var/www/html/index.html
+
+#!/bin/bash
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>This is my WebServer - 1</h1>" > /var/www/html/index.html
+
+
+For ELBs, We will get DNS Endpoint..
+Roundrobin algorithm.. 
+
+Task : Launch multiple webservers in Multiple AZs... COnfigure the Classic ELB. 
+--> Test the Sticky session
+
+
+
+
+
+
+
+
+
+
+______
+
+Target Group : Each target group is used to route requests to one or more registered targets. When you create each listener rule, you specify a target group and conditions. When a rule condition is met, traffic is forwarded to the corresponding target group.
+
+Application ELB : http and https
+
+Application Load balancing algorithm : 
+--> Round robin
+--> Least outstanding requests
+
+--> We cannot assign a dedicated IP address for our Application ELB.
+
+Network ELB : TCP.. 
+--> Flow Hash algorithm.
+--> We CAN assign a dedicated IP address for our network ELB.
+
+Application LB Supports path based routing, also supports Microservices.
+
+millions req/sec : NLB
+
+ELB Access Logs : Logging on ELB. Destination is s3.
+
+Task : Practice Network ELB with multiple TGs. (80, 8080, 8888)
+_______________________
+
+Task : Launch multiple webservers in Multiple AZs... COnfigure the Classic ELB. 
+Task : Practice application ELB with multiple TGs. (80, 8080, 8888)
+--> Make sure you configure Pipeline mechanism between your ec2 instances and ELB.!!
+
+
+
+
 
 

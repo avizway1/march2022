@@ -729,5 +729,13 @@ For ELB, you need port 80 / 443 / 8080 / 8888
 
 We dont have session tomorrow..!!! Next session is on Wednesday (i.e; 13/04)
 
+______________________________
+
+https://join.slack.com/t/awswithavinash/shared_invite/zt-ozg7f9gx-lGdrFMlaOAc_BiPl4V~f4w
+
+_______________________________
+
+
+
 
 

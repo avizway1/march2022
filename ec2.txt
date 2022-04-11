@@ -661,7 +661,7 @@ Gateway ELB : GENEVE / 3rd party security virtual applicances..
 yum install httpd -y
 service httpd start
 chkconfig httpd on
-echo "<h1>This is my Userdata Webserver</h1>" >> /var/www/html/index.html
+echo "<h1>This is my Webserver : 80</h1>" >> /var/www/html/index.html
 
 #!/bin/bash
 yum install httpd -y
@@ -676,16 +676,9 @@ Roundrobin algorithm..
 Task : Launch multiple webservers in Multiple AZs... COnfigure the Classic ELB. 
 --> Test the Sticky session
 
+_______________________________________________________________________________________
 
-
-
-
-
-
-
-
-
-______
+D: 11/04/2022
 
 Target Group : Each target group is used to route requests to one or more registered targets. When you create each listener rule, you specify a target group and conditions. When a rule condition is met, traffic is forwarded to the corresponding target group.
 
@@ -711,11 +704,30 @@ Task : Practice Network ELB with multiple TGs. (80, 8080, 8888)
 _______________________
 
 Task : Launch multiple webservers in Multiple AZs... COnfigure the Classic ELB. 
-Task : Practice application ELB with multiple TGs. (80, 8080, 8888)
+Task : Practice application ELB / ALB with multiple TGs. (80, 8080, 8888)
 --> Make sure you configure Pipeline mechanism between your ec2 instances and ELB.!!
 
 
+___________________________________________________________
 
+--> Windows instance and trying to connect with putty application..!!!!
+Windows : Remote Desktop Application : 3389
+Linux : Putty / Openssh : 22
+
+--> GoldenAMI : 
+Windows : Launch an ec2 instance (base), IIS/WP/Timezone : Create a GoldenAMI --> Launch new ec2 instance (New instance shuld have all settings you configured on base instance)
+--> Make sure you change Administrator password before creating goldenAMI (Windows)
+
+--> ELB is not an ec2 instance, you no need to open port 3389 / 22.
+For ELB, you need port 80 / 443 / 8080 / 8888
+
+--> Stopping instances, instead of terminate.. Make sure you terminate all resources.
+
+--> Open for everyone with IPv4.
+
+
+
+We dont have session tomorrow..!!! Next session is on Wednesday (i.e; 13/04)
 
 
 

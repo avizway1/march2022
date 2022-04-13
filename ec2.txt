@@ -733,7 +733,56 @@ ______________________________
 
 https://join.slack.com/t/awswithavinash/shared_invite/zt-ozg7f9gx-lGdrFMlaOAc_BiPl4V~f4w
 
-_______________________________
+_________________________________________________________________________________________
+
+D: 13/04/2022
+
+ASG : Auto Scaling Group : 
+
+--> DYnamic (Step/Simple) Load 
+--> Scheduled scaling : 
+--> Manual : 
+
+1. Create a Golden AMI
+2. Create an ELB (Empty LB)
+3. Create an ASG
+	3.1 Create a Launch configuration / Launch template (WHat settings instance)
+	3.2 Configure the ASG (When to scale/ Desired count)
+
+
+ScaleIN : Remove the instance from ASG
+ScaleOut : Add the instances to ASG.
+
+How ASG will choose the instance to terminate if any ScaleIN action triggered..!! 
+
+ASG Termination policy : refer to the image.
+
+
+t2.micro --> Current configuration.. 
+t2.nano..??? How you can do this with 0 downtime..!! 
+
+
+Create a new launch configuration/template.. Associate this with ASG. Terminate the existing instance.. Now new instance will come with updated launch config settings.
+(Set Desired capacity to 2)..!!! 
+
+
+Task : 
+Create an ASG with a V1 Launch config.. Launch with Desired capacity as 2.. Test it.. 
+
+Configure Alarm to set Desired capacity as 1, when cpu utilisation is <10. 
+
+Configure scheduled scaling to set DC as 3 instance at specific time and test it. 
+
+________
+
+1 : Create a Golden AMI
+2 : Create a ELB
+3 : Create a Launch COnfig
+4 : Create an ASG with Fixed (2) and test it
+5 : Confiure Scheduled scaling.
+6 : Configure Simple scaling (low usage scaling)
+7 : Configure Versions for Launch config. 
+
 
 
 

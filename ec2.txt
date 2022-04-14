@@ -783,6 +783,75 @@ ________
 6 : Configure Simple scaling (low usage scaling)
 7 : Configure Versions for Launch config. 
 
+_______________________________________________________________________________________
+
+D: 14/04/2022
+
+Userdata : We can pass commands to our ec2 instance, it executes when we launch instances for the first time. 
+
+curl http://169.254.169.254/latest/user-data/
+
+Linux : #!/bin/bash
+
+yum install httpd -y
+service httpd start
+chkconfig httpd on
+echo "<h1>THis is my BSS Webpage</h1>" >> /var/www/html/index.html
+
+#Cloud-init : To execute commands after every reboot
+
+Windows : 
+<powershell> commands </powershell>
+<script>tzutil /s "India Standard Time"</script>
+
+<persist>on/true</persist> : To execute commands after every reboot
+
+
+Metadata : data about the data. We can run this metadata url inside an ec2 instance and we can get the required information about the ec2 instance. 
+
+ami-id
+ami-launch-index
+ami-manifest-path
+block-device-mapping/
+events/
+hibernation/
+hostname
+identity-credentials/
+instance-action
+instance-id
+instance-life-cycle
+instance-type
+local-hostname
+local-ipv4
+mac
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+services/
+___________
+
+EFS : Elastic File System : File Share : Shared Storage solution for Multiple ec2 instances. : 
+--> Network File System : NFS v4.1 : Port 2049
+--> Support only Linux OS 
+--> No Pre Provisioning required.
+--> Add entry in "/etc/fstab" file.  Get entry info from "/etc/mtab" file
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-062d2b0fccfbe76ac.efs.ap-south-1.amazonaws.com:/ shared
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-062d2b0fccfbe76ac.efs.ap-south-1.amazonaws.com:/ /var/www/html/
+
+
+fs-062d2b0fccfbe76ac.efs.ap-south-1.amazonaws.com:/ /var/www/html nfs4 rw,relatime,vers=4.1,rsize=1048576,wsize=1048576,namlen=255,hard,noresvport,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=172.31.7.15,local_lock=none,addr=172.31.0.15 0 0
+
+Task : Create EFS and Mount it to multiple ec2 instances. Deliver Web Content to both the instances from EFS.
+
+
 
 
 

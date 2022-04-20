@@ -23,7 +23,6 @@ Private hosted zone : A private hosted zone determines how traffic is routed wit
 
 Step 3 : When we create a hostedzone, we will get SOA, NS (name Server).. Grab the NS record information and Configure NS records at Domain Registrer..
 
-
 We need to create required DNS record : 
 A Record: Address record : Domain Name <--> IP Address
 Alias Record : AWS Own record : We always use Alias record along with A record : A+Alias
@@ -41,6 +40,22 @@ Choose Routing policy :
 
 
 
+_____
+
+#!/bin/bash
+yum install httpd -y
+echo "<h1>This is a Mumbai WebServer</h1>" > /var/www/html/index.html
+service httpd start
+chkconfig httpd on
+
+
+
+
+#!/bin/bash
+yum install httpd -y
+echo "<h1>This is a USA WebServer</h1>" > /var/www/html/index.html
+service httpd start
+chkconfig httpd on
 
 
 

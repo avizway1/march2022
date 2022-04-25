@@ -158,5 +158,48 @@ https://app.diagrams.net/?splash=0&libs=aws4
 
 Task 3 : Launch NAT Instance, and provide internet to Private Subnet resources.
 
+_____________________________________________________________________________________
+
+D: 25/04/2022
+
+Enable Logging on VPC : 
+Flow Logs: We can enable flowlogs at 
+--> VPC Level
+--> Subnet Level
+--> Instance Level
+
+We can choose destination as 1. S3 bucket 2. Cloudwatch Logs groups.
+
+_____________
+
+NACL : Network Access Control List : We can allow/deny traffic at Subnet level/AZ level using this NACLs.
+--> We need to takes care about the inbound rules and outbound rules.
+--> one subnet can be member of one NACL at a time.
+
+--> Default NACLs, : all subnets member of this. It allows all the traffic.
+--> New NACLs won't allow any traffic, Defaultly deny everything.  
+
+--> Ephemeral ports / Temporary ports need to opened in NACL. 
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-ephemeral-ports
+
+--> Lowest rule number will have highest permissions. 
+
+_________________
+
+
+VPC Peering : Allow us to enable communication between multiple VPCs. (Same region, DIff region, Diff AWS accout VPCs)
+
+--> Requester VPC and Accepter VPC should not have same CIDR range.
+--> VPC Peering is non transitive peering. 
+--> Update both the VPCs route tables with Another VPC CIDR blocks via Peering connection. 
+
+			Requester VPC (mumbai)				Accepeter VPC (Singapore)
+VPC CIDR	192.168.0.0/16						172.31.0.0/16
+VPC ID		vpc-04c410bb3abaf7d2c				vpc-51dd1137
+Region		ap-south-1							ap-southeast-1
+ACC ID		501170964283							501170964283
+
+
+8 Subnets in environment : 2 Public, 2 application (private), 2 Lambda (private), 2 Database/data (private)
 
 

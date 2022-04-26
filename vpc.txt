@@ -182,9 +182,11 @@ NACL : Network Access Control List : We can allow/deny traffic at Subnet level/A
 --> Ephemeral ports / Temporary ports need to opened in NACL. 
 https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html#nacl-ephemeral-ports
 
---> Lowest rule number will have highest permissions. 
+--> Lowest rule number will have highest permissions.
 
-_________________
+_______________________________________________________________________________________
+
+D: 26/04/2022
 
 
 VPC Peering : Allow us to enable communication between multiple VPCs. (Same region, DIff region, Diff AWS accout VPCs)
@@ -193,13 +195,29 @@ VPC Peering : Allow us to enable communication between multiple VPCs. (Same regi
 --> VPC Peering is non transitive peering. 
 --> Update both the VPCs route tables with Another VPC CIDR blocks via Peering connection. 
 
-			Requester VPC (mumbai)				Accepeter VPC (Singapore)
-VPC CIDR	192.168.0.0/16						172.31.0.0/16
-VPC ID		vpc-04c410bb3abaf7d2c				vpc-51dd1137
+			Requester VPC (Mumbai)				Accepeter VPC (Singapore)
+VPC CIDR	192.168.0.0/16						172.16.0.0/16
+VPC ID		vpc-0bde5175461eb62f2				vpc-02b6f40577dc8cb70
 Region		ap-south-1							ap-southeast-1
 ACC ID		501170964283							501170964283
 
 
 8 Subnets in environment : 2 Public, 2 application (private), 2 Lambda (private), 2 Database/data (private)
+
+___
+
+Endpoints : Private Links : It provides private connectivity to the resources. If we have any requirement, s3 rwquests/dynamodb req should not flow over the internet. 
+
+NAT Gateway Works with IPv4. 
+If our VPC is configured to use IPv6, Instead of NAT Gateway, We use "Egress Only Internet Gateways".
+
+
+Can we associate multiple CIDRs for our VPC.
+Yes.. 
+
+__
+
+VPN Connectivity (openvpn): https://www.youtube.com/watch?v=JSTyjISscNg
+Transit Gateway : https://www.youtube.com/watch?v=xyLlMBHy2wc
 
 

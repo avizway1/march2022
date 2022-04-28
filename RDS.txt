@@ -86,11 +86,7 @@ Task 1 : Launch an Mysql RDS db instance in CUstomVPCs Private SUbnet. Launch an
 
 Task 2 : Restore the shared sample db to the rds instance. 
 
-Task 3 : Task 1 : Launch an Postgre SQL RDS db instance in CUstomVPCs Private SUbnet. Launch an ec2 instance in custom VPC Public Subnet and Install PgAdmin then connect to the RDS db instance. 
-
-
-
-
+Task 3 : Launch an Postgre SQL RDS db instance in CUstomVPCs Private SUbnet. Launch an ec2 instance in custom VPC Public Subnet and Install PgAdmin then connect to the RDS db instance. 
 
 _________________________________________________________________________________________
 

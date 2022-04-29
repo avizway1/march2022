@@ -138,8 +138,90 @@ Task 1 : Create environment as mentioned in "VPC1.png"
 Task 2 : https://aws.amazon.com/getting-started/hands-on/amazon-efs-backup-and-restore-using-aws-backup/?trk=gs_card
 
 Task 3 : https://aws.amazon.com/getting-started/hands-on/amazon-ebs-backup-and-restore-using-aws-backup/?trk=gs_card
-
-
 ____________________________________________________________________________________
+
+D: 29/04/2022
+
+Amazon Aurora DB : No Free tier eligibility
+
+Provisioned : You provision and manage the server instance sizes.
+Serverless : You specify the minimum and maximum amount of resources needed, and Aurora scales the capacity based on database load. This is a good option for intermittent or unpredictable workloads.
+
+tier 0 > tier 1 > tier 1 > ... > tier 15
+
+Max capacity for Aurora : 128TB of storage.. Remaining rds db engines supports 16 TB only.
+
+_____
+
+Dynamodb : nosql database : Serverless architecture. : Single-digit millisecond latency at any scale. 
+
+Now you can select, insert, update, and delete data in DynamoDB. using ad hoc PartiQL queries.
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html
+
+{
+Name : Avinash,
+Contact : 1111,
+address : 
+	{	
+	street : 1,
+	area : k
+	},
+}
+
+DAX : Dynamodb accelarator : in-Memory caching solution for DynamoDB.
+
+__________________
+
+https://docs.microsoft.com/en-us/dotnet/architecture/cloud-native/relational-vs-nosql-data#:~:text=Relational%20databases%20provide%20a%20store%20of%20related%20data%20tables.&text=Instead%20of%20joining%20tables%20of,of%20a%20single%20database%20partition.
+___________________
+
+Elasticache : In-Memory caching solution for RDS service. It have 2 open source caching engines. 
+--> MemcacheD
+--> Redis
+
+Amazon DocumentDB : MongoDB compatable database. 
+
+__________________
+
+Task : 
+https://aws.amazon.com/getting-started/hands-on/create-nosql-table/
+
+Task : https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TicTacToe.html
+
+
+
+
+
+
+
+
+________________
+
+Task : launch an rds mysql db instance-1.. Now export/restore the shared db... 
+
+Launch another rds mysql db instance-2.. Migrate all the datbases and tables from Db instance-1 to db instance-2 Using DMS (Database Migration service).
+
+1. Launch a DMS cluster
+2. Create endpoints (Source and destination) and test the endpoints
+3. Create a replciation job and verify.
+
+https://www.youtube.com/watch?v=iRhJDGp-ew8
+
+_________________
+
+Task 5 : https://aws.amazon.com/getting-started/hands-on/migrate-rdsmysql-to-auroramysql/?trk=gs_card (No free tier)
+
+
+
+
+
+
+
+
+
+
+
+
 
 

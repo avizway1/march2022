@@ -1,0 +1,108 @@
+D: 30/04/2022
+
+AWS Trusted Advisor : Based on our support plan aws provide suggestions to fix 
+Basic and Developer : Some Advises
+Business and enterprise : Full Checks
+
+--> Cost Optimization : under utilised resources
+--> Performance : Over utilized resources
+--> Security
+--> Fault Tolerance
+--> Service Limits
+
+_________________________________________________________________________________
+
+ACM : Amazon Certificate Manager : Generate SSL/TLS certificates. 
+
+learnaws.co.in
+__________
+
+Cloudtrail : Logging service. Enabled by default. it stores only last 90 days logs. Create a trail to s3 to store all logs for unlimited days. 
+
+• Management events provide information about management operations that are
+performed on resources in your AWS account. These are also known as control plane
+operations.
+
+• Data events provide information about the resource operations performed on or in a
+resource. These are also known as data plane operations. Data events are often high-volume activities. Data events can log s3, Dynamodb and Lambda services.
+
+• Insight Events : CloudTrail Insights events capture unusual activity in your AWS account. If you have Insights events enabled, and CloudTrail detects unusual activities.
+
+--> Cloudwatch Agent : We can install cw agent at os level, we can get custom logs of OS. 
+
+** Realtime : We enable trail for all accounts in one AWS Logging account. If any external auditor visits, we can provide access on only logging account.
+In Real env: We create a trail for Management, another trail for data and insights.
+
+DataDog, Splunk, site24x7
+__________________________________
+
+Config : (Config works with Cloudtrail) : Record and evaluate configurations of your AWS resources. "NO FREE TIER"
+--> No s3 bucket should have public access. (Non_Compliant resource)
+--> WHen SSL cert is about to expire.
+
+https://aws.amazon.com/blogs/aws/aws-config-update-aggregate-compliance-data-across-accounts-regions/
+
+____________________________________
+
+Task : Deliver website using ELB.. Generate SSL cert and configure http to https redirection.
+https://raw.githubusercontent.com/avizway/redirection/master/httptohttps
+
+
+______________________________________________________________________________________
+
+D: 02/05/2022
+
+
+AWS Inspector : It used to analyse the instance health status including OS level.
+(NO FREE TIER ELIGIBILITY)..
+--> Inspector agent will perform the selected assesments to find common issues, network rechability and CIS benchmarks. 
+
+Sprint : 2 weeks : 
+
+Inspector agent need to install in our ec2 instance.. We can install manaually.. We can use Systems Manager. 
+
+--> Common Vulnerabilities and Exposures-1.1
+--> CIS Operating System Security Configuration Benchmarks-1.0
+--> Network Reachability-1.1
+--> Security Best Practices-1.0
+
+____
+
+AWS Cloudfront : AWS CDN Service (Content Delivery Network) : Akamai, cloudflair..
+--> CLoudfront have a feature to protect our resources from DDoS attack.
+
+To get the latest data from the Origin / To clear the cache from Edge location, We can perform "Invalidation".
+
+sfh6643ef.cloudfront.net --> Learnaws.co.in --> 
+
+Cache and origin request settings : Use legacy cache settings
+
+Default TTL : 86,400 Sec (1 Day)'
+Max : 365 Days
+
+We must create SSL Cert in N Virginia to map with cloudfront distribution. 
+
+--> Based on endcustomer geo location, we can whitelist/blocklist the data.
+
+________________________________________________
+
+WAF : Web Application Firewall : Application ELB, CLoudfront, API Gateway.. : AWS WAF is a web application firewall service that lets you monitor web requests that are forwarded to an Amazon API Gateway API, an Amazon CloudFront distribution, or an Application Load Balancer. You can protect those resources based on conditions that you specify, such as the IP addresses that the requests originate from.
+
+-->  We can create rules in WAF and apply on top of Application Load balancer / Cloudfront / Api gateway.
+____
+
+Protect our resources from DDoS attack : AWS Shield Advanced ($3000/Month)  + ASG + CloudFront
+
+AWS Shiled / AWS Shieled advanced : Designed to protect our resources from DDoS Attack. 
+
+Shield Enabled for all the aws account. 
+Shield advanced cost us 3000$/Month.. AWS Team monitor the DDoS attack/traffic.
+
+____________
+
+Task : Launch an ec2 instance and make it web server, Create an ELB, Try to deliver with Cloudfront distribution.
+
+
+
+
+

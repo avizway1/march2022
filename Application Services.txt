@@ -77,40 +77,7 @@ AWS Console Recorder : Browser plugin
 
 _____________________________________________________________________________________
 
-Cloud9 : IDE with in AWS environment. 
-
-AWS CDK : Cloud Development kit : Typescript, Python, .net, Java
-
-Step 1 : install node.js 	npm --version
-Step 2 : Install AWS CDK	npm install -g aws-cdk
-	  To Verify CDK verion	cdk --version
-
-cdk init		--> Initialise the project
-
-
-
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
-
-
-mkdir test-project
-cd test-project
-cdk init sample-app --language typescript
-cdk synth		--> Synthasise, Create a cloudformation script
-cdk bootstrap		--> Only onetime
-cdk diff		--> What modifications happens
-lib/test-project-stack.ts	--> Our code is here
-
-https://cdkworkshop.com/
-https://aws.amazon.com/tools/
-https://aws.amazon.com/sdk-for-python/
-https://github.com/aws/aws-sdk-js-v3#getting-started
-
-https://www.youtube.com/watch?v=rtI26X6FJX0&list=PLneBjIzDLECkdgoinrTO7D519zgPEmcte
-_____________________________________________________________________________________
+07/05/2022
 
 Codecommit
 CodeDeploy
@@ -126,7 +93,7 @@ git status
 git commit -m "commit msg"
 git push
 git pull
-
+git clone
 
 Task : With shared code, perform CICD deployment.
 
@@ -160,6 +127,7 @@ Task Defination : Task definitions specify the container information for your ap
 https://ecsworkshop.com/
 https://www.youtube.com/containersfromthecouch
 https://kodekloud.com/courses/docker-for-the-absolute-beginner/
+https://www.youtube.com/watch?v=fqMOX6JJhGo
 
 _________________________________
 
@@ -167,6 +135,43 @@ AWS Organisations along with SSO:
 
 Management account : From single aws account, we can manage multiple accounts. Centralized billing option for multiple aws accounts. 
 
+______________________________________________________________________________________
+
+D: 09/05/2022
+
+Cloud9 : IDE with in AWS environment. 
+
+AWS CDK : Cloud Development kit : Typescript, Python, .net, Java
+
+Step 1 : install node.js 	npm --version
+Step 2 : Install AWS CDK	npm install -g aws-cdk
+	  To Verify CDK verion	cdk --version
+
+cdk init		--> Initialise the project
+
+ * `npm run watch`   watch for changes and compile
+ * `npm run test`    perform the jest unit tests
+ * `cdk deploy`      deploy this stack to your default AWS account/region
+ * `cdk diff`        compare deployed stack with current state
+ * `cdk synth`       emits the synthesized CloudFormation template
+
+
+mkdir test-project
+cd test-project
+cdk init sample-app --language typescript
+cdk synth		--> Synthasise, Create a cloudformation script
+cdk bootstrap		--> Only onetime
+cdk diff		--> What modifications happens
+lib/test-project-stack.ts	--> Our code is here
+cdk deploy	--> To deploy
+
+https://cdkworkshop.com/
+https://aws.amazon.com/tools/
+https://aws.amazon.com/sdk-for-python/
+https://github.com/aws/aws-sdk-js-v3#getting-started
+
+https://www.youtube.com/watch?v=rtI26X6FJX0&list=PLneBjIzDLECkdgoinrTO7D519zgPEmcte
+_____________________________________________________________________________________
 __________________________________________________________________________________
 
 Gateway : https://www.youtube.com/watch?v=wmcBSHpoHhs
@@ -180,8 +185,6 @@ Switch role : https://www.youtube.com/watch?v=sZiiB4yF0VY
 
 https://aws.amazon.com/certification/
 
-
-https://signin.aws.amazon.com/switchrole?roleName=AvinashRole&account=rajumcloud
 
 GIT : https://www.youtube.com/watch?v=rtI26X6FJX0&list=PLneBjIzDLECkdgoinrTO7D519zgPEmcte
 
